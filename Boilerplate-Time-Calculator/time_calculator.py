@@ -55,17 +55,17 @@ def add_time(start, duration, weekday = None):
   else:
     days_dict = {"Sunday":1, "Monday":2, "Tuesday":3, "Wednesday":4, 
                  "Thursday":5, "Friday":6, "Saturday":7}
-    # Достаём значение value по значению key, приводим weekday к единому с key виду
+    
     day = days_dict.get(weekday.capitalize())
-    # Изменяем key при условии изменившихся данных  
+      
     if new_day == "(next day)":
       day = day + 1
     elif new_day == "(" + str(int(time_hour24) // 24) +  " days later)":
       day = day + int(time_hour24) // 24
-    # Изменяем значение value если оно больше заданных значений
+    
     if day > 7:
       day = day % 7  
-    # Функция для получения значения key по значению value
+    
     for key, value in days_dict.items():
       if value == day:
         nameday = key
